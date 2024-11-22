@@ -1,8 +1,17 @@
 
 # NETFLIX GPT
 
- first we create an react app 
- tailwind installation
+ - first we create an react app 
+ - tailwind installation
+ - Header
+ - Login
+ - signin/signup
+ - Routing 
+ - Form handling
+ - use Ref hook
+ - Firebase authentication
+ - Sign in and sign up with full authentication
+ 
 
 
 # Features 

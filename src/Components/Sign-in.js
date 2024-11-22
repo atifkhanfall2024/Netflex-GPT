@@ -1,10 +1,19 @@
-import { useState } from "react"
+import { useState ,useRef } from "react"
+import Validate from "../utils/Validate"
+import {createUserWithEmailAndPassword } from "firebase/auth";
+import {  signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../utils/Firebase";
+
 
 const SignIn = ()=>{
 
     // usage of use state to set that when i clicked on toggle then the sign in text change to sign up
 
     const[IsSignin , setIsSignin] = useState(true)
+    const [Error , setError] = useState(null)
+    const email = useRef(null)
+    const password = useRef(null)
+    const name = useRef(null)
 
     const toggleForm = ()=>{
 
@@ -17,16 +26,63 @@ const SignIn = ()=>{
       setIsSignin(!IsSignin)
     }
 
+    const HandleButton = ()=>{
+
+    const Message =    Validate(email.current.value , password.current.value , name.current.value)
+    setError(Message)
+      //  console.log(email.current.value)
+       // console.log(password.current.value)
+    //   console.log(Message);
+
+             if(Message) return ;
+
+             if(!IsSignin){
+                // sign up
+                // create a new account 
+              
+                createUserWithEmailAndPassword(auth, email.current.value , password.current.value)
+  .then((userCredential) => {
+    // Signed up 
+    const user = userCredential.user;
+    // ...
+    console.log(user);
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    // ..
+    setError(errorCode + "-"+ errorMessage)
+  });
+             }
+             else {
+                //sign in
+                // sign in with email and password 
+                signInWithEmailAndPassword(auth, email.current?.value, password.current?.value)
+  .then((userCredential) => {
+    // Signed in 
+    const user = userCredential.user;
+    console.log(user);
+    // ...
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    setError(errorCode + "-"+ errorMessage)
+  });
+             }
+    }
+
     return(
         
         <div className="absolute  top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-black bg-opacity-80 rounded w-1/4 p-5 px-10">
        
-            <form className="flex flex-col" >
+            <form className="flex flex-col" onSubmit={(e)=> e.preventDefault()} >
             <p className="text-2xl my-7 mx-4 text-white px-5">{IsSignin?"Sign In":"Sign up"}</p>
-            {!IsSignin&&<input className="p-2  m-2 bg-gray-700 text-white" type="text" placeholder="Enter Full name"/>}
-            <input className="p-2  m-2 bg-gray-700 text-white" type="text" placeholder="Enter your mail"/>
-            <input className="p-2 m-2 bg-gray-700 text-white" type="password" placeholder="Enter password"/>
-            <button className="text-white p-3 my-4 bg-red-500">{IsSignin?"Sign In":"Sign up"}</button>
+            {!IsSignin&&<input className="p-2  m-2 bg-gray-700 text-white" ref={name} type="text"  placeholder="Enter Full name"/>}
+            <input className="p-2  m-2 bg-gray-700 text-white" ref={email} type="text"  placeholder="Enter your mail"/>
+            <input className="p-2 m-2 bg-gray-700 text-white" ref={password}  type="password" placeholder="Enter password"/>
+            <p className="text-red-400 px-4 font-bold">{Error}</p>
+            <button className="text-white p-3 my-4 bg-red-500" onClick={HandleButton} >{IsSignin?"Sign In":"Sign up"}</button>
        
             </form>
             <div className="flex justify-between">
