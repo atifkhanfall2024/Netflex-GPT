@@ -3,10 +3,12 @@ import Validate from "../utils/Validate"
 import {createUserWithEmailAndPassword } from "firebase/auth";
 import {  signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../utils/Firebase";
+import { useNavigate } from "react-router-dom";
 
 
 const SignIn = ()=>{
 
+   const navigate = useNavigate()
     // usage of use state to set that when i clicked on toggle then the sign in text change to sign up
 
     const[IsSignin , setIsSignin] = useState(true)
@@ -28,23 +30,26 @@ const SignIn = ()=>{
 
     const HandleButton = ()=>{
 
-    const Message =    Validate(email.current.value , password.current.value , name.current.value)
+    const Message =    Validate(email?.current?.value , password?.current?.value , name?.current?.value)
     setError(Message)
       //  console.log(email.current.value)
        // console.log(password.current.value)
     //   console.log(Message);
 
-             if(Message) return ;
+             if(Message) return null ;
 
              if(!IsSignin){
                 // sign up
                 // create a new account 
               
-                createUserWithEmailAndPassword(auth, email.current.value , password.current.value)
+                createUserWithEmailAndPassword(auth, email?.current?.value , password?.current?.value)
   .then((userCredential) => {
     // Signed up 
     const user = userCredential.user;
     // ...
+
+    // if user successfully signed up then navigate into browse page
+     navigate("/browse")
     console.log(user);
   })
   .catch((error) => {
@@ -57,11 +62,16 @@ const SignIn = ()=>{
              else {
                 //sign in
                 // sign in with email and password 
-                signInWithEmailAndPassword(auth, email.current?.value, password.current?.value)
+                signInWithEmailAndPassword(auth, email?.current?.value, password?.current?.value)
   .then((userCredential) => {
     // Signed in 
     const user = userCredential.user;
     console.log(user);
+   
+     // if user successfully signed in then navigate into browse page
+     navigate("/browse")
+    //...
+
     // ...
   })
   .catch((error) => {
