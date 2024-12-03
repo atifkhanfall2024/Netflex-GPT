@@ -19,6 +19,10 @@
  - successful login goto browse page
  - Also add signout function
  - useNavigation hook
+ - OnAuthChange => this api is actually called when we sign in  ,out , or up outomatically called this api
+ - bug fix of user onAuthstatechange
+ - redirect user if user is not login donot go to browser page using localhost:3000/browse on this redirect back to login when the user is not login 
+ 
  
  
 
