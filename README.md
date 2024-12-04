@@ -24,7 +24,24 @@
  - redirect user if user is not login donot go to browser page using localhost:3000/browse on this redirect back to login when the user is not login 
  
  
- 
+ # Browse Page 
+ - Main container
+   - Movie background
+   - movie title
+ - secondary container
+  - movies * n rows
+    - cards  *n in each row
+
+  # Main container
+ - Title
+  - inside it i pass props inside it take title and review of movie
+ - background
+  - in background i fetch an api from movie data base then after this i use filter method that if vedio is present of trailer then give me other wise give me the json.result specific vedio
+  - then i use trailer and set a state inside it and that triler key push into iframe src to display this vedio 
+ - movie slice
+  - create a movie slice initally null then calling an api of movies now plying name and dispatch it into store 
+  - then we read that movie in title.js from this we read title and review 
+  
 
 
 # Features 
