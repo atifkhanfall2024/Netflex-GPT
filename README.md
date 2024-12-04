@@ -42,6 +42,7 @@
   - create a movie slice initally null then calling an api of movies now plying name and dispatch it into store 
   - then we read that movie in title.js from this we read title and review 
   
+  - creating custom hook for code reusability and cleaning code
 
 
 # Features 
