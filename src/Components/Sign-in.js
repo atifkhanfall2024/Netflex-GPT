@@ -3,12 +3,12 @@ import Validate from "../utils/Validate"
 import {createUserWithEmailAndPassword } from "firebase/auth";
 import {  signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../utils/Firebase";
-import { useNavigate } from "react-router-dom";
+
 
 
 const SignIn = ()=>{
 
-   const navigate = useNavigate()
+  
     // usage of use state to set that when i clicked on toggle then the sign in text change to sign up
 
     const[IsSignin , setIsSignin] = useState(true)
@@ -49,7 +49,7 @@ const SignIn = ()=>{
     // ...
 
     // if user successfully signed up then navigate into browse page
-     navigate("/browse")
+   
     console.log(user);
   })
     .catch((error) => {
@@ -69,7 +69,7 @@ const SignIn = ()=>{
     console.log(user);
    
      // if user successfully signed in then navigate into browse page
-     navigate("/browse")
+   
     //...
 
     // ...

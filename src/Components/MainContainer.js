@@ -10,8 +10,8 @@ const MainContainer = ()=>{
 
     if(!Movie) return null 
 
-     const Get_Movie = Movie[1]
-
+     const Get_Movie = Movie[5]
+     console.log(Get_Movie)
     
       const {id}  = Get_Movie
     return(

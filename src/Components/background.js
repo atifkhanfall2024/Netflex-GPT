@@ -4,6 +4,10 @@ const Background = ({mytitle})=>{
 
      // using state variable to get key of trailer
 
+     // we get tralier key as dynaminc using use state  and also we can set store for it i can do it with both method
+     
+     // as i create a slice with name trailerslice we can eaily here dispatch and selecter here
+     
      const [trailerid , settrailerid] = useState(null)
 
            
@@ -12,13 +16,13 @@ const Background = ({mytitle})=>{
 
            const BackgroundApi = async()=>{
 
-            const data = await fetch('https://api.themoviedb.org/3/movie/912649/videos?language=en-US' , options)
+            const data = await fetch("https://api.themoviedb.org/3/movie/"+ mytitle + "/videos?language=en-US" , options)
 
             const json = await data.json()
             
             const filterdata = json.results.filter((vedio)=> vedio.type === "Tralier")
             
-            const trailer = filterdata.length ? filterdata[0] : json.results[9]
+            const trailer = filterdata.length ? filterdata[0] : json.results[2]
             
             settrailerid(trailer.key)
           

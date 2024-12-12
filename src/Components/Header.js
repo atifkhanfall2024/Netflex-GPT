@@ -32,7 +32,7 @@ const Header = ()=>{
 
   }
   useEffect(()=>{
-    onAuthStateChanged(auth, (user) => {
+ const unsubscribe =    onAuthStateChanged(auth, (user) => {
         if (user) {
           // User is signed in, see docs for a list of available properties
           // https://firebase.google.com/docs/reference/js/auth.user
@@ -48,16 +48,21 @@ const Header = ()=>{
           navigation("/")
           // ...
         }
+
       });
+
+      // this unsubscribe will work when we want to unmount from the useeffect or leave the page
+
+      return() => unsubscribe()
  } ,[])
     return(
       <>
     
-  <div className="absolute w-screen px-8 py-2 bg-gradient-to-b from-black flex justify-between">
+  <div className="absolute  w-screen px-8  bg-gradient-to-b from-black flex justify-between">
     <img className="w-40 " src="https://th.bing.com/th/id/R.a1f673e7df715f16dae49f4874009082?rik=1oW0xBGxcarNqw&pid=ImgRaw&r=0" alt ='logo'/>
     <div className=" flex p-8 space-x-3">
       <img className=" w-10 h-10" alt =  "user"  src="https://th.bing.com/th/id/OIP.kYYbdJhBIh1SEi8MKTPYpgHaHa?rs=1&pid=ImgDetMain"/>
-      <button className="text-white " onClick={handleclick}>Sign out</button>
+      <button className="text-white  z-10 " onClick={handleclick}>Sign out</button>
    
     </div>
       </div>

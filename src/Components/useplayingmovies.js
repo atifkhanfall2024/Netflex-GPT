@@ -25,7 +25,7 @@ const Useplayingmovies = ()=>{
 
         const json = await data.json()
 
-        console.log(json.results);
+      
         
         dispatch(Addmovies(json.results))
      } 

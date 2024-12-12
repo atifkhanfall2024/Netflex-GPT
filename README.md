@@ -22,6 +22,7 @@
  - OnAuthChange => this api is actually called when we sign in  ,out , or up outomatically called this api
  - bug fix of user onAuthstatechange
  - redirect user if user is not login donot go to browser page using localhost:3000/browse on this redirect back to login when the user is not login 
+ - unsubscribe => i use unsubscribed when i want to unmount the onauthchange call back
  
  
  # Browse Page 
@@ -31,6 +32,17 @@
  - secondary container
   - movies * n rows
     - cards  *n in each row
+
+# Main COntainer Flow
+ * in main container i have call an api of now playing movie and get all the information from all the movie then send props for these  in title and background 
+   
+   # title 
+    - in title i have pass props of movie title and description 
+
+    # background 
+    - in background file i have make an api call of moives and then filter it if filter moive is find in first index then give me other wise give me next movie background 
+    - usage of iframe inside background 
+    
 
   # Main container
  - Title
