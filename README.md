@@ -69,3 +69,29 @@
   Buttons
   Movie suggestion
   Movie list *N  
+
+
+  # Working on Secondary container
+
+   - secondary container
+     - movie list
+     - movie cards
+
+ -  In secondary container i  have made a call of the movies that have already in store 
+ - Then passing props of that movie inside in movielist and movie cards 
+ - I set multiple call of list in Secondary container 
+ - movie list read title and movies passing as a props inside it so we need an img of movie inside cards so we extract its image from movies and send in movie card file 
+ - we also set map on movie card because we have multiple movies 
+
+ # usage of cloudinary of tmdb inside project
+ - inside in movie cards i have make an  api call of cloudinary link and and image path that we extract it add with them
+ - Usage of scrollbar concept 
+
+
+
+ # ALso add some other movies Slices
+ - call some apis and push that api movies data into store and use in secondary container 
+
+
+ # Add link
+ - add some links on header 

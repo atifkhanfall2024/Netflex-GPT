@@ -7,3 +7,12 @@ export const options = {
   };
 
  export const API = "https://api.themoviedb.org/3/movie/now_playing?page=1"
+
+
+ export const Cloudinary_IMG = "https://image.tmdb.org/t/p/w500/"
+
+
+ export const APIs = 'https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=1'
+
+
+ export const Trend = 'https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1'

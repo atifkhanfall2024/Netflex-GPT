@@ -58,7 +58,7 @@ const Header = ()=>{
     return(
       <>
     
-  <div className="absolute  w-screen px-8  bg-gradient-to-b from-black flex justify-between">
+  <div className="absolute z-50 w-screen px-8  bg-gradient-to-b  flex justify-between">
     <img className="w-40 " src="https://th.bing.com/th/id/R.a1f673e7df715f16dae49f4874009082?rik=1oW0xBGxcarNqw&pid=ImgRaw&r=0" alt ='logo'/>
     <div className=" flex p-8 space-x-3">
       <img className=" w-10 h-10" alt =  "user"  src="https://th.bing.com/th/id/OIP.kYYbdJhBIh1SEi8MKTPYpgHaHa?rs=1&pid=ImgDetMain"/>
