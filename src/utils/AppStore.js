@@ -2,7 +2,8 @@ import { configureStore } from "@reduxjs/toolkit";
 import UserSlice from "./UserSlice"
 import MovieSlice from "./MoviesSlice"
 import Trailerslice from "./Trailerslice"
-
+import Gptslice from "./GPTslice"
+import Langslice from "./LangSlice"
 const AppStore = configureStore(
     {
         reducer:{
@@ -10,6 +11,8 @@ const AppStore = configureStore(
             user : UserSlice ,
             movie : MovieSlice ,
             trailers:Trailerslice ,
+            gpt:Gptslice ,
+            Lan:Langslice
 
         }
     }

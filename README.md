@@ -95,3 +95,24 @@
 
  # Add link
  - add some links on header 
+
+
+ # Header updation
+
+ - today i duild a feature that when a use onauth success then i use a state varaible that setuser is not user so now its is not show image signout and gpt in ligin page its only show in browse page
+ - use state variable const [isuser , setisuser] = usestate(false)
+
+
+ # GPT Working 
+
+ - so we have start working on gpt inside gpt have two components search gpt and movie suggestion
+ - i export gpt in browse
+ - now i work on hanlde the toggling on gpt button that when i clicked on button then toggle the page to gpt page
+ - so i create a slice for toggling that when i clicked on button then dispatch its value to store and read this value in browse page that when showme is true then show me page other wise donot show me gpt page
+
+ - after that i build seach bar gpt 
+
+ # Multilanguage 
+ - create multi_ Language  fully working
+
+# GPT API 
